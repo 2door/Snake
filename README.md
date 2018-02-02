@@ -1,2 +1,2 @@
 # snake
-CS324: Computer Graphics coursework
+Computer Graphics coursework
