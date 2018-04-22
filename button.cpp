@@ -14,6 +14,7 @@
 
 /**
  * Returns the width of a string if displayed in screen.
+ * Move to util
  */
 float Button::str_width(const char* s) {
 	int len = strlen(s);
@@ -27,6 +28,7 @@ float Button::str_width(const char* s) {
 /**
  * Draws text on screen.
  * Transformations should be done before the function call.
+ * Move to util.
  */
 void Button::draw_text(const char* s) {
 	int len = strlen(s);

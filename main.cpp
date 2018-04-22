@@ -287,6 +287,7 @@ void stop_game() {
 
 /**
  * Returns the width of a string if printed in screen.
+ * Move to util.
  */
 float str_width(const char* s) {
 	int len = strlen(s);
@@ -306,6 +307,7 @@ float str_width(std::string s) {
 }
 
 // Displays text.
+// Move to util
 void draw_text(const char* s) {
 	int len = strlen(s);
 	for (int i = 0; i < len; i++) {
@@ -367,6 +369,7 @@ void draw_score() {
 
 /**
  * Translates x from the range a1-a2 to the range b1-b2.
+ * Move to util.
  */
 int normalize(int x, int a1, int a2, int b1, int b2) {
 	return b1 + ( (x - a1) * (b2 - b1) / (a2 - a1) );
@@ -551,15 +554,15 @@ void draw_tail(unsigned int dir) {
 	 * Therefore, the order values are rearranged such that the contained
 	 *  value (L=Left etc.) represents the desired location of the texture
 	 */
-		cube_side order[5] = {R, L, B, T, N};
-		switch(dir) {
-			case LEFT: order[0] = L; order[1] = R;
-					   order[2] = T; order[3] = B; break;
-			case UP: order[0] = T; order[1] = B;
-					 order[2] = R; order[3] = L; break;
-			case DOWN: order[0] = B; order[1] = T;
-					   order[2] = L; order[3] = R; break;
-		}
+	cube_side order[5] = {R, L, B, T, N};
+	switch(dir) {
+		case LEFT: order[0] = L; order[1] = R;
+					order[2] = T; order[3] = B; break;
+		case UP: order[0] = T; order[1] = B;
+					order[2] = R; order[3] = L; break;
+		case DOWN: order[0] = B; order[1] = T;
+					order[2] = L; order[3] = R; break;
+	}
 	glEnable(GL_TEXTURE_2D);
 		draw_textured_side(INTER, order[0]);
 		draw_textured_side(END, order[1]);
@@ -687,7 +690,7 @@ void draw_3D_snake() {
  * Draws the collectible pellet, textured as an apple
  */
 void draw_3D_pellet() {
-	// set the surface properties (all same material)
+	// Set the surface properties (all same material)
 	glMaterialfv(GL_FRONT, GL_AMBIENT, p_ambient);
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, p_diffuse);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, p_specular);
@@ -712,7 +715,7 @@ void draw_3D_pellet() {
  * Draws a plank, an element of the fence outline
  */
 void draw_plank() {
-	// set the surface properties (all same material)
+	// Set the surface properties (all same material)
 	glMaterialfv(GL_FRONT, GL_AMBIENT, w_ambient);
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, w_diffuse);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, w_specular);
